@@ -13,8 +13,6 @@ module.exports = function(map: Object, refreshdata: Function) {
 
     fetchJSONFile('https://gis.dola.colorado.gov/lookups/componentYRS', function(data) {
 
-        console.log(data);
-
         var queriedYears: string = "";
 
         for (let i = 0; i < data.length; i++) {
