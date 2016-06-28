@@ -20,7 +20,7 @@ module.exports = function() {
     if (yearset === "") {
         yearset = String(first_year)
     }
-  
+
     return [yearset, stat_element.options[stat_element.selectedIndex].value]
 
 }
