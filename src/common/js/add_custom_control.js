@@ -1,8 +1,10 @@
 // @flow
 
 var fetchJSONFile = require("./fetch_json.js");
+var refreshdata = require("./refresh_data.js");
 
-module.exports = function(map: Object, refreshdata: Function) {
+
+module.exports = function(map: Object, layer: Object) {
     'use strict';
 
     //Custom Layer Control
@@ -29,16 +31,16 @@ module.exports = function(map: Object, refreshdata: Function) {
         command.addTo(map);
 
 
-        document.getElementById("stat").addEventListener("click", function() {
-            refreshdata();
+        document.getElementById("stat").addEventListener("change", function() {
+            refreshdata(layer);
         }, false);
 
-        document.getElementById("selfrom").addEventListener("click", function() {
-            refreshdata();
+        document.getElementById("selfrom").addEventListener("change", function() {
+            refreshdata(layer);
         }, false);
 
-        document.getElementById("selto").addEventListener("click", function() {
-            refreshdata();
+        document.getElementById("selto").addEventListener("change", function() {
+            refreshdata(layer);
         }, false);
 
 

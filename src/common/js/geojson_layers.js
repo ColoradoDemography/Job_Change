@@ -1,5 +1,7 @@
 // @flow
 
+var styleLayer = require("./style_layer.js");
+
 module.exports = function(map: Object) {
     'use strict';
 
@@ -9,37 +11,26 @@ module.exports = function(map: Object) {
     }
 
     var coutline: Object = new L.geoJson(null, {
-        style: function() {
-            return {
-                weight: 1,
-                color: "#444",
-                fillOpacity: 0
-            };
-        },
+        style: styleLayer(null),
         onEachFeature: county_onEachFeature
     }).addTo(map);
 
 
-    var p1: Promise = new Promise(function(resolve, reject) {
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', "data/counties.geojson");
-        xhr.send(null);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    var parsed_response = JSON.parse(xhr.responseText);
-                    coutline.addData(parsed_response);
-                    resolve("geojson file successfully loaded");
-                } else {
-                    console.log('Error: ' + xhr.status);
-                    reject("count not load geojson file");
-                }
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "data/counties.geojson");
+    xhr.send(null);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                var parsed_response = JSON.parse(xhr.responseText);
+                coutline.addData(parsed_response);
+            } else {
+                console.log('Error: ' + xhr.status);
             }
-        };
+        }
+    };
 
-    }); //end promise
 
-    return [p1, coutline];
+    return coutline;
 
 }
