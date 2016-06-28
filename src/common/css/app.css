@@ -1,0 +1,478 @@
+html,
+body, head {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    cursor: grab !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+#tabs-1{
+  font-family: Courier, sans-serif;
+}
+#tabs-2{
+  font-family: Courier, sans-serif;
+}
+
+button.ui-button-icon-only
+{
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.title{
+    font-family: Georgia, Serif;
+}
+
+circle {
+    cursor: pointer;
+}
+
+path {
+    cursor: grab !important;
+}
+
+.btn {
+    color: red;
+    cursor: pointer;
+}
+
+a.btn {
+    text-decoration: none;
+}
+
+a.btn {
+    outline: none;
+}
+
+a.btn strong {
+    line-height: 30px;
+}
+
+a.btn:hover {
+    text-decoration: none;
+}
+
+a.btn span {
+    z-index: 10;
+    display: none;
+    padding: 14px 20px;
+    margin-top: -30px;
+    margin-left: 28px;
+    line-height: 16px;
+}
+
+a.btn:hover span {
+    display: inline;
+    position: absolute;
+    color: #111;
+    border: 1px solid #DCA;
+    background: #fffAF0;
+}
+
+.callout {
+    z-index: 20;
+    position: absolute;
+    top: 0px;
+    border: 0;
+    left: -12px;
+}
+
+
+/*CSS3 extras*/
+
+a.btn span {
+    border-radius: 0px;
+    box-shadow: 5px 5px 8px #CCC;
+    padding: 5px;
+    margin: 0px;
+}
+
+a:hover {
+    color: #CC3333;
+    text-decoration: underline;
+}
+
+.sl {
+    bottom: 25px;
+    left: 40px;
+}
+
+.command {
+    border-radius: 10px;
+    background: white;
+    border: 1px solid rgb(221, 221, 221);
+    color: rgb(110, 110, 110);
+    font-size: 12px;
+  cursor: default;
+}
+
+.command input {
+  cursor: pointer;
+}
+
+.title h2 {
+    cursor: default;
+}
+
+li.ui-state-active a {
+  cursor: default !important;
+}
+
+li.ui-tabs-active a {
+  cursor: default !important;
+}
+
+.title {
+    border-radius: 6px;
+    background: white;
+    padding-top: 0px;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-bottom: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    color: rgb(20, 20, 20);
+    font-size: 12px;
+}
+
+.spanindent {
+    margin: 20px;
+    color: #999;
+}
+
+.spanindent a {
+    color: #999;
+}
+
+h4 {
+    font-size: 13px;
+    margin-bottom: 1px;
+    margin-top: 5px;
+    color: black;
+}
+
+label {
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+
+input.leg {
+    width: 13px;
+    height: 13px;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+    position: relative;
+    top: -3px;
+    *overflow: hidden;
+}
+
+.desctext {
+    color: grey;
+}
+
+.modal {
+    cursor: default;
+}
+
+.ui-rangeSlider-bar {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.command {
+    font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+h4.command {
+    font-size: 13px;
+    margin-bottom: 1px;
+    margin-top: 5px;
+    color: rgb(50, 50, 50);
+    padding: 0px;
+    background: none;
+    border-width: 0px;
+}
+
+.ui-tabs-nav {
+    padding-left: 0px;
+    background: transparent;
+    border-width: 0px 0px 1px 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.ui-tabs-panel {
+    background: #f5f3e5 url(http://code.jquery.com/ui/1.8.23/themes/south-street/images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) repeat-x scroll 50% top;
+    border-width: 0px 1px 1px 1px;
+}
+
+.leaflet-control-command-interior {
+    width: 260px;
+    height: 100px;
+    display: block;
+    padding: 3px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #999;
+    border-color: rgba(0, 0, 0, .4);
+    box-shadow: none;
+    cursor: default;
+    text-align: center;
+    background-color: #FFFFFF;
+    color: rgba(0, 0, 0, .75);
+    z-index: 10;
+}
+
+.typeahead,
+.tt-query,
+.tt-hint {
+    width: 250px;
+    height: 30px;
+    padding: 4px 6px;
+    font-size: 12px;
+    line-height: 16px;
+    border: 2px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    outline: none;
+}
+
+.typeahead {
+    background-color: #fff;
+}
+
+.typeahead:focus {
+    border: 2px solid #0097cf;
+}
+
+.tt-query {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+    color: #999
+}
+
+.tt-menu {
+    width: 250px;
+    margin: 12px 0;
+    padding: 8px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.tt-suggestion {
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.tt-suggestion:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #0097cf;
+}
+
+.tt-suggestion.tt-cursor {
+    color: #fff;
+    background-color: #0097cf;
+}
+
+.tt-suggestion p {
+    margin: 0;
+}
+
+h2 {
+    margin: 10px;
+}
+
+.title h2 {
+    margin: 15px;
+}
+
+hr {
+    margin: 5px;
+}
+
+.tt-menu {
+    display: block !important;
+}
+
+.bord {
+    border: #ccc 2px solid !important;
+}
+
+table a:link {
+    color: #0078A8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+table a:visited {
+    color: #0078A8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+table a:active,
+table a:hover {
+    color: #CC3333;
+    text-decoration: underline;
+}
+
+.modal-inner {
+    padding: 20px;
+}
+
+table {
+    border: #ccc 2px solid !important;
+    table-layout: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666;
+    font-size: 12px;
+    text-shadow: 1px 1px 0px #fff;
+    background: #eaebec;
+    margin: 5px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 1px 2px #d1d1d1;
+    -webkit-box-shadow: 0 1px 2px #d1d1d1;
+    box-shadow: 0 1px 2px #d1d1d1;
+    word-wrap: break-word !important;
+    margin: 0 auto;
+}
+
+th {
+    font-family: "courier", sans-serif;
+    font-size: 11px;
+    max-width: 200px;
+    max-height: 100px;
+    overflow: visible;
+    word-wrap: break-word;
+    padding: 5px;
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #e0e0e0;
+    background: #ededed;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+    background: -moz-linear-gradient(top, #ededed, #ebebeb);
+    word-wrap: break-word !important;
+    text-align: center;
+}
+
+td {
+    padding: 5px;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    background: #fafafa;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+    background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
+    font-family: "courier", sans-serif;
+    font-size: 11px;
+    max-width: 300px;
+    max-height: 100px;
+    overflow: hidden;
+    word-wrap: break-word !important;
+}
+
+a.btn {
+    padding: 2px;
+}
+
+.h3,
+h3 {
+    font-size: 20px;
+}
+
+.abbrev td {
+    max-width: 50%;
+    padding: 2px 10px 2px 10px;
+}
+
+
+
+.leaflet-div-icon1 {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.leaflet-div-icon2 {
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    color: white;
+    text-align: center;
+    border-radius: 55%;
+    font-size: 11px;
+    line-height: 11px;
+}
+
+.leaflet-div-icon3 {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    color: white;
+    text-align: center;
+    border-radius: 60%;
+    font-size: 7px;
+    line-height: 7px;
+}
+
+.abbrev td {
+    font-family: Courier, sans-serif;
+  font-size: 12px;
+}
+
+#bblink {
+    font-family: Courier, sans-serif;
+}
+
+
+@media (max-width: 599px) {
+  .command, #slider, .title, .leaflet-control-layers {
+    display: none;
+  }
+  .ifmobile {
+    display: visible;
+  }
+  .notmobile {
+    display: none;
+  }
+}
+
+
+@media (min-width: 600px) {
+  .command, #slider, .title, .leaflet-control-layers {
+    display: visible;
+  }
+  .ifmobile {
+    display: none;
+  }
+  .notmobile {
+    display: visible;
+  }
+}
