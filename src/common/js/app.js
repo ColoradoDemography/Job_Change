@@ -1,7 +1,5 @@
 // @flow
 
-
-
 document.addEventListener("DOMContentLoaded", function() {
     'use strict';
 
@@ -27,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }).addTo(map);
 
     require("./add_layer_control.js")(map, instance, basemaps);
-    
+
+    require("./add_custom_control")(map, function() {});
+
 
 }); //end DOM Content Loaded

@@ -136,10 +136,6 @@ li.ui-tabs-active a {
 .title {
     border-radius: 6px;
     background: white;
-    padding-top: 0px;
-    padding-left: 15px;
-    padding-right: 10px;
-    padding-bottom: 0px;
     border: 1px solid rgb(221, 221, 221);
     color: rgb(20, 20, 20);
     font-size: 12px;
@@ -310,7 +306,7 @@ h2 {
 }
 
 .title h2 {
-    margin: 15px;
+    margin: 0px;
 }
 
 hr {
@@ -322,6 +318,7 @@ hr {
 }
 
 .bord {
+   padding: 10px;
     border: #ccc 2px solid !important;
 }
 
