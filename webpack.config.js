@@ -7,7 +7,7 @@ var FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 module.exports = {
     entry:  {
       app: './src/common/js/app.js',
-      vendor: ['./src/lib/js/Leaflet.Modal.js','./src/lib/js/leaflet.label.js','babel-polyfill']
+      vendor: ['./src/lib/js/Leaflet.Modal.js','./src/lib/js/leaflet.label.js','./src/lib/js/L.D3SvgOverlay.min.js','babel-polyfill']
     },
     output: {
         path:     'dest',
