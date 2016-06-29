@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
         layers: [basemaps.nolabel],
         zoomControl: false
     });
-  
+
     require("./add_legend")(map);
 
     var layer = require("./geojson_layers.js")(map);
@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
     require("./add_layer_control.js")(map, basemaps);
 
     require("./add_custom_control.js")(map, layer);
+
 
 
 }); //end DOM Content Loaded

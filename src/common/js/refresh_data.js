@@ -16,25 +16,25 @@ module.exports = function(geolayer) {
         var cMap = new CMap(data);
 
 
-        //             console.log(cMap.data);
-        //       console.log("first_year: " + cMap.first_year);
-        //       console.log("last_year: " + cMap.last_year);
-        //       console.log("number_of_years: " + cMap.number_of_years);
-        //       console.log("Adams Pop Estimate 1970: " + cMap.retrieveCountyPop(1,1970));
-        //       console.log('PopChgAdams: ' + cMap.retrieveTtlPopChg(1));
-        //       console.log('PctPopChg: ' + cMap.retrievePctPopChg(1));
-        //       console.log('TtlBirths: ' + cMap.retrieveTtlBirths(1));
-        //       console.log('TtlDeaths: ' + cMap.retrieveTtlDeaths(1));  
-        //       console.log('NaturalIncrease: ' + cMap.retrieveNatIncrease(1));
-        //       console.log('Net Migration: ' + cMap.retrieveTtlMigration(1));
-        //       console.log('Avg Pop Chg: ' + cMap.retrieveAvgPopChg(1));
-        //       console.log('avg pct pop chg: ' + cMap.retrieveAvgPctPopChg(1));
-        //       console.log('adams birth rate: ' + cMap.retrieveCountyBirthRate(1,1970));
-        //       console.log('adams birth rateTtl: ' + cMap.retrieveBirthRate(1));  
-        //       console.log('adams death rate: ' + cMap.retrieveCountyDeathRate(1,1970));
-        //       console.log('adams death rateTtl: ' + cMap.retrieveDeathRate(1));    
-        //       console.log('rate of natural increase: ' + cMap.retrieveRateNaturalIncrease(1));
-        //       console.log('migration rate: ' + cMap.retrieveMigrationRate(1));
+        console.log(cMap.data);
+        console.log("first_year: " + cMap.first_year);
+        console.log("last_year: " + cMap.last_year);
+        console.log("number_of_years: " + cMap.number_of_years);
+        console.log("Adams Pop Estimate 1970: " + cMap.retrieveCountyPop(1, 1970));
+        console.log('PopChgAdams: ' + cMap.retrieveTtlPopChg(1));
+        console.log('PctPopChg: ' + cMap.retrievePctPopChg(1));
+        console.log('TtlBirths: ' + cMap.retrieveTtlBirths(1));
+        console.log('TtlDeaths: ' + cMap.retrieveTtlDeaths(1));
+        console.log('NaturalIncrease: ' + cMap.retrieveNatIncrease(1));
+        console.log('Net Migration: ' + cMap.retrieveTtlMigration(1));
+        console.log('Avg Pop Chg: ' + cMap.retrieveAvgPopChg(1));
+        console.log('avg pct pop chg: ' + cMap.retrieveAvgPctPopChg(1));
+        console.log('adams birth rate: ' + cMap.retrieveCountyBirthRate(1, 1970));
+        console.log('adams birth rateTtl: ' + cMap.retrieveBirthRate(1));
+        console.log('adams death rate: ' + cMap.retrieveCountyDeathRate(1, 1970));
+        console.log('adams death rateTtl: ' + cMap.retrieveDeathRate(1));
+        console.log('rate of natural increase: ' + cMap.retrieveRateNaturalIncrease(1));
+        console.log('migration rate: ' + cMap.retrieveMigrationRate(1));
 
         //symbolize layer
         symbology(geolayer, cMap, string_output[1]);

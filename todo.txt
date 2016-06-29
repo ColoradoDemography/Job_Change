@@ -1,13 +1,18 @@
 
-Legend
-Popups
 
-Download (micro and meta)
-screenshot-ability (hash state?)
-filter data rather than constant API calls
+
+Features:
+- Popups / MODAL instead
+- Download (micro and meta)
+- screenshot-ability (hash state?)
+
 
 Optimize:
-- Startup State not blank
+- filter data rather than constant API calls
 - Extra Symbology Breakdowns
-
 - Label Position (small adjustments)
+
+
+Weird:
+- Double Zoom Layer Mousewheel?
+- Fuzzy Text after zoom-in & out  (try redraw each zoom?)

@@ -9,6 +9,7 @@ module.exports = function(geolayer, cMap, num) {
     if (num === "1") {
         max = cMap.getMaxPctChange();
         min = cMap.getMinPctChange();
+        console.log(max, min);
     }
     if (num === "2") {
         max = cMap.getMaxTtlChange();
@@ -60,10 +61,14 @@ module.exports = function(geolayer, cMap, num) {
         min = -max;
     }
 
-  redraw_legend(min, max);
-        
-  
-  
+    if (max < 0) {
+        max = -min;
+    }
+
+    redraw_legend(min, max, num);
+
+
+
     geolayer.setStyle(function(d) {
 
         var value;
@@ -105,7 +110,7 @@ module.exports = function(geolayer, cMap, num) {
         if (num === "12") {
             value = cMap.retrieveTtlMigration(fips);
         }
-      
+
 
 
         if (value > (-Infinity) && value <= (min * 0.5)) {
@@ -204,8 +209,8 @@ module.exports = function(geolayer, cMap, num) {
         }; //hey you; there's a problem
 
     });
-  
-  
-  
+
+
+
 
 }

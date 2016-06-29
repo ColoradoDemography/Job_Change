@@ -104,7 +104,13 @@ module.exports = function() {
         /* PERCENT POPULATION */
 
         this.retrievePctPopChg = function(fips) {
-            return ((this.retrieveTtlPopChg(fips) / this.retrieveCountyPop(fips, first_year)) * 100).toFixed(2);
+            var pctpopchg = ((this.retrieveTtlPopChg(fips) / this.retrieveCountyPop(fips, first_year)) * 100).toFixed(2);
+            if (isFinite(pctpopchg)) {
+                return pctpopchg;
+            } else {
+                //console.log("infinite: " + fips);
+                return 0;
+            }
         }
 
         this.getMaxPctChange = function() {
@@ -131,7 +137,13 @@ module.exports = function() {
 
 
         this.retrieveAvgPctPopChg = function(fips) {
-            return (((Math.pow((this.retrieveCountyPop(fips, last_year) / this.retrieveCountyPop(fips, first_year)), (1 / number_of_years))) - 1) * 100).toFixed(2);
+            var calc = (((Math.pow((this.retrieveCountyPop(fips, last_year) / this.retrieveCountyPop(fips, first_year)), (1 / number_of_years))) - 1) * 100).toFixed(2);
+            if (isFinite(calc)) {
+                return calc;
+            } else {
+                //console.log("infinite: " + fips);
+                return 0;
+            }
         }
 
         this.getMaxAvgPctPopChg = function() {

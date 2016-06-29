@@ -64,6 +64,14 @@ module.exports = function(map: Object, layer: Object) {
             }
         });
 
+
+
+        //intialize!
+        var e: any = document.querySelector('#selto [value="2015"]');
+        e.selected = true;
+        refreshdata(layer);
+
+
     });
 
 

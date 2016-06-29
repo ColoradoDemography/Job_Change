@@ -11,8 +11,8 @@ module.exports = function(map: Object) {
     }
 
     var coutline: Object = new L.geoJson(null, {
-        style: function(){
-          return {
+        style: function() {
+            return {
                 weight: 1,
                 color: "grey",
                 fillOpacity: 0
