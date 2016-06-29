@@ -1,6 +1,6 @@
 // @flow
 
-
+//webworker
 var p: Promise = new Promise(function(resolve) {
 
     /* $FlowIssue - Flow throws cannot find module error on Worker */
@@ -32,9 +32,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     require("./add_legend")(map);
-
-    var layer = require("./geojson_layers.js")(map);
-
     require("./add_credits")(map);
     require("./add_title_control")(map);
 
@@ -44,11 +41,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     require("./add_layer_control.js")(map, basemaps);
 
-
+    //when data has been loaded
     p.then(function(worker_data) {
-        require("./add_custom_control.js")(map, layer, worker_data);
-    }, function(fail_reason) {
-        console.log(fail_reason);
+
+        var p1: Promise = new Promise(function(resolve) {
+            require("./geojson_layers.js")(map, worker_data[0], resolve);
+        });
+
+        p1.then(function(layer) {
+            require("./add_custom_control.js")(map, layer, worker_data);
+        });
+
     });
 
 

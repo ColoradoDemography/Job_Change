@@ -2,13 +2,11 @@
 
 
 
-module.exports = function(map: Object) {
+module.exports = function(map: Object, worker_data: Object, resolve: any) {
+
     'use strict';
 
-
-    function county_onEachFeature(feature, layer) {
-        layer.bindPopup("County: " + feature.properties.NAME);
-    }
+    var buildModal = require("./build_modal.js");
 
     var coutline: Object = new L.geoJson(null, {
         style: function() {
@@ -18,7 +16,11 @@ module.exports = function(map: Object) {
                 fillOpacity: 0
             };
         },
-        onEachFeature: county_onEachFeature
+        onEachFeature: function(feature, layer) {
+            layer.on('click', function(e) {
+                buildModal(e, worker_data, map);
+            });
+        }
     }).addTo(map);
 
 
@@ -31,6 +33,7 @@ module.exports = function(map: Object) {
                 var parsed_response = JSON.parse(xhr.responseText);
                 coutline.addData(parsed_response);
                 require("./d3_text.js")(map);
+                resolve(coutline);
             } else {
                 console.log('Error: ' + xhr.status);
             }
@@ -38,6 +41,6 @@ module.exports = function(map: Object) {
     };
 
 
-    return coutline;
+
 
 }

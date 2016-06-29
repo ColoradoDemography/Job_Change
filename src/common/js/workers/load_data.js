@@ -23,7 +23,7 @@ onmessage = function(e) {
 
 
                 console.log('Posting message back to main script');
-              
+
                 postMessage([data, yrs]);
                 close(); //worker is finished
 
