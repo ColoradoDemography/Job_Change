@@ -1,0 +1,7 @@
+
+Legend
+Popups
+County Labels
+Download (micro and meta)
+screenshot-ability (hash state?)
+filter data rather than constant API calls

@@ -4,7 +4,7 @@ var styleLayer = require("./style_layer.js");
 
 module.exports = function(map: Object) {
     'use strict';
-
+  
 
     function county_onEachFeature(feature, layer) {
         layer.bindPopup("County: " + feature.properties.NAME);
