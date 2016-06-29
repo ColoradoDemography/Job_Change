@@ -347,9 +347,9 @@ table a:hover {
 table {
     border: #ccc 2px solid !important;
     table-layout: fixed;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #666;
-    font-size: 12px;
+    font-family: Verdana;
+    color: #111;
+    font-size: 11px;
     text-shadow: 1px 1px 0px #fff;
     background: #eaebec;
     margin: 5px;
@@ -364,8 +364,8 @@ table {
 }
 
 th {
-    font-family: "courier", sans-serif;
-    font-size: 11px;
+    font-family: Verdana;
+    font-size: 12px;
     max-width: 200px;
     max-height: 100px;
     overflow: visible;
@@ -388,7 +388,7 @@ td {
     background: #fafafa;
     background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
     background: -moz-linear-gradient(top, #fbfbfb, #fafafa);
-    font-family: "courier", sans-serif;
+    font-family: Verdana;
     font-size: 11px;
     max-width: 300px;
     max-height: 100px;

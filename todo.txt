@@ -1,7 +1,6 @@
 
 
 Features:
-- Popups / MODAL instead
 - Download (micro and meta)
 - screenshot-ability (hash state?)
 - Mouseover for Statistic 
@@ -12,7 +11,7 @@ Optimize:
 - Extra Symbology Breakdowns
 - Label Position (small adjustments)
 - Credits Modal
-
+- Table-ize Legend
 
 Weird:
 - Double Zoom Layer Mousewheel?
