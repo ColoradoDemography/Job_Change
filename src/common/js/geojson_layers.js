@@ -1,17 +1,23 @@
 // @flow
 
-var styleLayer = require("./style_layer.js");
+
 
 module.exports = function(map: Object) {
     'use strict';
-  
+
 
     function county_onEachFeature(feature, layer) {
         layer.bindPopup("County: " + feature.properties.NAME);
     }
 
     var coutline: Object = new L.geoJson(null, {
-        style: styleLayer(null),
+        style: function(){
+          return {
+                weight: 1,
+                color: "grey",
+                fillOpacity: 0
+            };
+        },
         onEachFeature: county_onEachFeature
     }).addTo(map);
 

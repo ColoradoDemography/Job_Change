@@ -6,7 +6,7 @@ module.exports = function(map: Object, basemaps: Object) {
 
 
     var baseMaps: Object = {
-        "Mapbox Light": basemaps.light,
+        "Default": basemaps.nolabel,
         "Mapbox Emerald": basemaps.emerald
     };
 

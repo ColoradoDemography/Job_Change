@@ -9,15 +9,17 @@ document.addEventListener("DOMContentLoaded", function() {
     require("!style!css!../../lib/css/leaflet.label.css");
     require("!style!css!../css/app.css");
 
-  
+
     var basemaps = require("./load_basemaps")();
 
     var map = L.map('map', {
         center: [39, -105.5],
         zoom: 7,
-        layers: [basemaps.light],
+        layers: [basemaps.nolabel],
         zoomControl: false
     });
+  
+    require("./add_legend")(map);
 
     var layer = require("./geojson_layers.js")(map);
 

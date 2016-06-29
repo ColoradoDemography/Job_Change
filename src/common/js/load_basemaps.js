@@ -10,6 +10,7 @@ module.exports = function() {
         basemaps.mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RhdGVjb2RlbW9nIiwiYSI6Ikp0Sk1tSmsifQ.hl44-VjKTJNEP5pgDFcFPg';
 
 
+
     basemaps.emerald = L.tileLayer(basemaps.mbUrl, {
         id: 'mapbox.emerald',
         attribution: basemaps.mbAttr
@@ -26,6 +27,9 @@ module.exports = function() {
         attribution: basemaps.mbAttr
     });
 
+    basemaps.nolabel = L.tileLayer('https://api.mapbox.com/styles/v1/statecodemog/ciq0yl9wf000ebpndverm5ler/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhdGVjb2RlbW9nIiwiYSI6Ikp0Sk1tSmsifQ.hl44-VjKTJNEP5pgDFcFPg', {
+        attribution: basemaps.mbAttr
+    });
 
     return basemaps;
 

@@ -1,7 +1,14 @@
 
 Legend
 Popups
-County Labels
+
 Download (micro and meta)
 screenshot-ability (hash state?)
 filter data rather than constant API calls
+
+Optimize:
+- Startup State not blank
+- Extra Symbology Breakdowns
+
+- Label Crispness
+- Label Position (small adjustments)

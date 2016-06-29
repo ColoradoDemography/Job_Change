@@ -76,8 +76,8 @@
 }, {
 	"fips": 31,
 	"cname": "Denver",
-	"x": -104.92,
-	"y": 39.79
+	"x": -104.91,
+	"y": 39.66
 }, {
 	"fips": 85,
 	"cname": "Montrose",
@@ -135,7 +135,7 @@
 	"y": 39.55
 }, {
 	"fips": 103,
-	"cname": "Rio Blanco",
+	"cname": "Rio|Blanco",
 	"x": -108.3,
 	"y": 40.05
 }, {
@@ -157,7 +157,7 @@
 	"fips": 1,
 	"cname": "Adams",
 	"x": -104.131,
-	"y": 39.9
+	"y": 39.87
 }, {
 	"fips": 79,
 	"cname": "Mineral",
@@ -222,7 +222,7 @@
 	"fips": 47,
 	"cname": "Gilpin",
 	"x": -105.528,
-	"y": 39.91
+	"y": 39.88
 }, {
 	"fips": 125,
 	"cname": "Yuma",
@@ -242,7 +242,7 @@
 	"fips": 19,
 	"cname": "Clear|Creek",
 	"x": -105.61,
-	"y": 39.74
+	"y": 39.71
 }, {
 	"fips": 75,
 	"cname": "Logan",
@@ -307,7 +307,7 @@
 	"fips": 5,
 	"cname": "Arapahoe",
 	"x": -104.131,
-	"y": 39.67
+	"y": 39.64
 }, {
 	"fips": 71,
 	"cname": "Las|Animas",

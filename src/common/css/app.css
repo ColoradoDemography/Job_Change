@@ -473,3 +473,5 @@ h3 {
     display: visible;
   }
 }
+
+text { text-rendering: optimizeLegibility ; }
