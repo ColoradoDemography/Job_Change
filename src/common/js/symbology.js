@@ -1,3 +1,5 @@
+var redraw_legend = require("./redraw_legend.js");
+
 module.exports = function(geolayer, cMap, num) {
 
     var max;
@@ -58,6 +60,10 @@ module.exports = function(geolayer, cMap, num) {
         min = -max;
     }
 
+  redraw_legend(min, max);
+        
+  
+  
     geolayer.setStyle(function(d) {
 
         var value;
@@ -99,6 +105,8 @@ module.exports = function(geolayer, cMap, num) {
         if (num === "12") {
             value = cMap.retrieveTtlMigration(fips);
         }
+      
+
 
         if (value > (-Infinity) && value <= (min * 0.5)) {
             return {
@@ -132,7 +140,7 @@ module.exports = function(geolayer, cMap, num) {
                 fillColor: "rgb(171, 217, 233)"
             };
         }
-        if (value > (min * 0.1) && value <= (min * 0)) {
+        if (value > (min * 0.1) && value <= 0) {
             return {
                 weight: 1,
                 color: "grey",
@@ -140,7 +148,7 @@ module.exports = function(geolayer, cMap, num) {
                 fillColor: "rgb(224, 243, 248)"
             };
         }
-        if (value > (min * 0) && value <= (max * 0.1)) {
+        if (value > 0 && value <= (max * 0.1)) {
             return {
                 weight: 1,
                 color: "grey",
@@ -196,5 +204,8 @@ module.exports = function(geolayer, cMap, num) {
         }; //hey you; there's a problem
 
     });
+  
+  
+  
 
 }

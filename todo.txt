@@ -10,5 +10,4 @@ Optimize:
 - Startup State not blank
 - Extra Symbology Breakdowns
 
-- Label Crispness
 - Label Position (small adjustments)
