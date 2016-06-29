@@ -1,16 +1,17 @@
 
 
-
 Features:
 - Popups / MODAL instead
 - Download (micro and meta)
 - screenshot-ability (hash state?)
+- Mouseover for Statistic 
+- waterfall graph
 
 
 Optimize:
-- filter data rather than constant API calls
 - Extra Symbology Breakdowns
 - Label Position (small adjustments)
+- Credits Modal
 
 
 Weird:

@@ -1,10 +1,9 @@
 // @flow
 
-var fetchJSONFile = require("./fetch_json.js");
 var refreshdata = require("./refresh_data.js");
 
 
-module.exports = function(map: Object, layer: Object) {
+module.exports = function(map: Object, layer: Object, worker_data: any) {
     'use strict';
 
     //Custom Layer Control
@@ -12,13 +11,13 @@ module.exports = function(map: Object, layer: Object) {
         position: 'topleft'
     });
 
-
-    fetchJSONFile('https://gis.dola.colorado.gov/lookups/componentYRS', function(data) {
+  var yrs_data = worker_data[1];
+  var main_data = worker_data[0];
 
         var queriedYears: string = "";
 
-        for (let i = 0; i < data.length; i++) {
-            queriedYears += "<option style='color:" + ((data[i].datatype === "Estimate") ? "black" : "red") + "' value='" + data[i].year + "'>" + data[i].year + "</option>";
+        for (let i = 0; i < yrs_data.length; i++) {
+            queriedYears += "<option style='color:" + ((yrs_data[i].datatype === "Estimate") ? "black" : "red") + "' value='" + yrs_data[i].year + "'>" + yrs_data[i].year + "</option>";
         }
 
         command.onAdd = function() {
@@ -32,15 +31,15 @@ module.exports = function(map: Object, layer: Object) {
 
 
         document.getElementById("stat").addEventListener("change", function() {
-            refreshdata(layer);
+            refreshdata(layer, main_data);
         }, false);
 
         document.getElementById("selfrom").addEventListener("change", function() {
-            refreshdata(layer);
+            refreshdata(layer, main_data);
         }, false);
 
         document.getElementById("selto").addEventListener("change", function() {
-            refreshdata(layer);
+            refreshdata(layer, main_data);
         }, false);
 
 
@@ -69,10 +68,10 @@ module.exports = function(map: Object, layer: Object) {
         //intialize!
         var e: any = document.querySelector('#selto [value="2015"]');
         e.selected = true;
-        refreshdata(layer);
+        refreshdata(layer, main_data);
 
 
-    });
+
 
 
 
