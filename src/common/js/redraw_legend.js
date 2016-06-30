@@ -134,13 +134,13 @@ module.exports = function(min, max, num) {
         hightext: ""
     });
 
-    var htmlstring = "";
+    var htmlstring = "<table style='border-style: none; line-height:12px;'>";
 
     for (let i = 0; i < legend_components.length; i++) {
-
-        htmlstring += "<span style='font-family: sans-serif'><span style='color: " + legend_components[i].rgb_string + "'>&block;</span>&nbsp;&nbsp;&nbsp;" + legend_components[i].lowtext + "&nbsp;&nbsp;" + legend_components[i].operator + "&nbsp;&nbsp;" + legend_components[i].hightext + "</span><br />";
-
+        htmlstring += "<tr><td style='text-align: center;'><span style='color: " + legend_components[i].rgb_string + "'>&block;</span></td><td style='text-align: right;'>" + legend_components[i].lowtext + "</td><td style='text-align: center;'>" + legend_components[i].operator + "</td><td style='text-align: left;'>" + legend_components[i].hightext + "</td></tr>";
     }
+
+    htmlstring += "</table>";
 
     var legend = document.getElementById('legend-control');
     legend.innerHTML = htmlstring;
