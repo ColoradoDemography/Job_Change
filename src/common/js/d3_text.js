@@ -62,6 +62,7 @@ module.exports = function(map) {
 
         map.addLayer(textOverlay);
 
+
     });
 
 

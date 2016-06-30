@@ -18,13 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
     'use strict';
 
     require("!style!css!../../lib/css/leaflet.modal.css");
+    require("!style!css!../../lib/css/easy-button.css");
     require("!style!css!../css/app.css");
 
 
     var basemaps = require("./load_basemaps")();
 
     var map = L.map('map', {
-        center: [39, -105.5],
+        center: [39.2, -104.8],
         zoom: 7,
         layers: [basemaps.nolabel],
         zoomControl: false
@@ -38,7 +39,13 @@ document.addEventListener("DOMContentLoaded", function() {
         position: 'topright'
     }).addTo(map);
 
+    require("./add_easy_button.js")(map);
+
     require("./add_layer_control.js")(map, basemaps);
+
+
+
+
 
     //when data has been loaded
     p.then(function(worker_data) {

@@ -7,7 +7,7 @@ var FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 module.exports = {
     entry:  {
       app: './src/common/js/app.js',
-      vendor: ['./src/lib/js/Leaflet.Modal.js','./src/lib/js/L.D3SvgOverlay.min.js','babel-polyfill']
+      vendor: ['./src/lib/js/Leaflet.Modal.js','./src/lib/js/L.D3SvgOverlay.min.js','./src/lib/js/leaflet-spin.js','babel-polyfill']
     },
     output: {
         path:     'dest',
@@ -38,7 +38,7 @@ module.exports = {
           presets: ["es2015"],  
         }
       },
-      { test: /\.png$/, loader: "url-loader?limit=100000" },
+      { test: /\.png$/, loader: "url-loader?limit=100000" }
     ]
   },
   plugins: [

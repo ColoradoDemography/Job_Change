@@ -35,101 +35,65 @@ module.exports = function(min, max, num, breaks) {
         rgb_string: "rgba(49, 54, 149, 0.5)",
         lowtext: "",
         operator: "<=",
-        hightext: ((breaks[0]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[0]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(69, 117, 180, 0.5)",
-        lowtext: (((Math.round((breaks[0]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[0]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: ((breaks[1]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[1]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(116, 173, 209, 0.5)",
-        lowtext: (((Math.round((breaks[1]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[1]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: ((breaks[2]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[2]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(171, 217, 233, 0.5)",
-        lowtext: (((Math.round((breaks[2]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[2]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: ((breaks[3]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[3]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(224, 243, 248, 0.5)",
-        lowtext: (((Math.round((breaks[3]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[3]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: breaks[4] + add_pct
+        hightext: commafy((breaks[4]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(255, 255, 191, 0.5)",
-        lowtext: (breaks[4] + offset) + add_pct,
+        lowtext: commafy(((Math.round((breaks[4]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: ((breaks[5]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[5]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(254, 224, 144, 0.5)",
-        lowtext: (((Math.round((breaks[5]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[5]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: ((breaks[6]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[6]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(253, 174, 97, 0.5)",
-        lowtext: (((Math.round((breaks[6]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[6]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: ((breaks[7]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[7]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(244, 109, 67, 0.5)",
-        lowtext: (((Math.round((breaks[7]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[7]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: ((breaks[8]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[8]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(215, 48, 39, 0.5)",
-        lowtext: (((Math.round((breaks[8]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[8]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "to",
-        hightext: ((breaks[9]).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct
+        hightext: commafy((breaks[9]).toFixed(sig_dig)) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(165, 0, 38, 0.5)",
-        lowtext: (((Math.round((breaks[9]) * scaler) / scaler) + offset).toLocaleString(undefined, {
-            maximumFractionDigits: sig_dig
-        })) + add_pct,
+        lowtext: commafy(((Math.round((breaks[9]) * scaler) / scaler) + offset).toFixed(sig_dig)) + add_pct,
         operator: "+",
         hightext: ""
     });
@@ -145,5 +109,15 @@ module.exports = function(min, max, num, breaks) {
     var legend = document.getElementById('legend-control');
     legend.innerHTML = htmlstring;
 
-
+    //http://stackoverflow.com/questions/6784894/add-commas-or-spaces-to-group-every-three-digits
+    function commafy(num) {
+        var str = num.toString().split('.');
+        if (str[0].length >= 5) {
+            str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        }
+        if (str[1] && str[1].length >= 5) {
+            str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+        }
+        return str.join('.');
+    }
 }

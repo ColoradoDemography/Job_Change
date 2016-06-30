@@ -61,7 +61,7 @@ module.exports = function(e, worker_data, map) {
             maximumFractionDigits: 1
         }) + "</td><td></td></tr>";
 
-        info_html += "</table><br /><div style='margin-right: auto; margin-left: auto; width: 240px;'><button id='dlthis' style='width=100px; margin-right: 20px;'>Download This</button><button  id='dlall' style='width=100px; margin-left: 20px;'>Download All</button></div>";
+        info_html += "</table><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='dlthis' style='width=140px; margin-right: 20px;'>Download Table</button><button  id='dlall' style='width=140px; margin-left: 20px;'>Download All Data</button></div>";
 
         map.openModal({
             content: info_html

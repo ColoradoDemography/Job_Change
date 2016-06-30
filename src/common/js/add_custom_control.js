@@ -64,11 +64,44 @@ module.exports = function(map: Object, layer: Object, worker_data: any) {
     });
 
 
+    function getJsonFromUrl() {
+        var query = location.search.substr(1);
+        var result = {};
+        query.split("&").forEach(function(part) {
+            var item = part.split("=");
+            result[item[0]] = decodeURIComponent(item[1]);
+        });
+        return result;
+    }
 
     //intialize!
-    var e: any = document.querySelector('#selto [value="2015"]');
-    e.selected = true;
-    refreshdata(layer, main_data);
+    var querystring = getJsonFromUrl();
+
+    if ('print' in querystring && 'stat' in querystring && 'from' in querystring && 'to' in querystring) {
+        let e: any = document.querySelector('#stat [value="' + querystring.stat + '"]');
+        e.selected = true;
+        let f: any = document.querySelector('#selfrom [value="' + querystring.from + '"]');
+        f.selected = true;
+        let g: any = document.querySelector('#selto [value="' + querystring.to + '"]');
+        g.selected = true;
+        document.getElementsByClassName('command')[0].style.display = 'none';
+        document.getElementsByClassName('leaflet-top leaflet-right')[0].style.display = 'none';
+
+        let stat_select: any = document.getElementById('stat');
+        let stat_text: any = stat_select.options[stat_select.selectedIndex].text;
+
+        let title_h2 = document.querySelector('.title h2');
+        let selfrom: any = document.getElementById("selfrom");
+        let selto: any = document.getElementById("selto");
+        title_h2.innerHTML = "Colorado, " + selfrom.value + " to " + selto.value + ":&nbsp;&nbsp;" + stat_text;
+
+        refreshdata(layer, main_data);
+    } else {
+        let e: any = document.querySelector('#selto [value="2015"]');
+        e.selected = true;
+        refreshdata(layer, main_data);
+    }
+
 
 
 
