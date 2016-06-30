@@ -108,7 +108,6 @@ module.exports = function() {
             if (isFinite(pctpopchg)) {
                 return pctpopchg;
             } else {
-                //console.log("infinite: " + fips);
                 return 0;
             }
         }
@@ -141,7 +140,6 @@ module.exports = function() {
             if (isFinite(calc)) {
                 return calc;
             } else {
-                //console.log("infinite: " + fips);
                 return 0;
             }
         }
@@ -220,6 +218,24 @@ module.exports = function() {
         }
 
 
+        this.getMedianTotalBirths = function() {
+            var values = [];
+            for (let i = 0; i < fips_array.length; i++) {
+                var current_county = parseFloat(this.retrieveTtlBirths(fips_array[i]));
+                values.push(current_county);
+            }
+
+            values.sort(function(a, b) {
+                return a - b;
+            });
+
+            var half = Math.floor(values.length / 2);
+            if (values.length % 2)
+                return values[half];
+            else
+                return (values[half - 1] + values[half]) / 2.0;
+        }
+
         this.retrieveBirthRate = function(fips) {
             var running_total = 0;
             for (let j = (first_year + 1); j < (last_year + 1); j++) {
@@ -248,6 +264,24 @@ module.exports = function() {
                 }
             }
             return min_value;
+        }
+
+        this.getMedianBirthRate = function() {
+            var values = [];
+            for (let i = 0; i < fips_array.length; i++) {
+                var current_county = parseFloat(this.retrieveBirthRate(fips_array[i]));
+                values.push(current_county);
+            }
+
+            values.sort(function(a, b) {
+                return a - b;
+            });
+
+            var half = Math.floor(values.length / 2);
+            if (values.length % 2)
+                return values[half];
+            else
+                return (values[half - 1] + values[half]) / 2.0;
         }
 
 
@@ -304,6 +338,23 @@ module.exports = function() {
             return min_value;
         }
 
+        this.getMedianTotalDeaths = function() {
+            var values = [];
+            for (let i = 0; i < fips_array.length; i++) {
+                var current_county = parseFloat(this.retrieveTtlDeaths(fips_array[i]));
+                values.push(current_county);
+            }
+
+            values.sort(function(a, b) {
+                return a - b;
+            });
+
+            var half = Math.floor(values.length / 2);
+            if (values.length % 2)
+                return values[half];
+            else
+                return (values[half - 1] + values[half]) / 2.0;
+        }
 
         this.retrieveDeathRate = function(fips) {
             var running_total = 0;
@@ -335,6 +386,23 @@ module.exports = function() {
             return min_value;
         }
 
+        this.getMedianDeathRate = function() {
+            var values = [];
+            for (let i = 0; i < fips_array.length; i++) {
+                var current_county = parseFloat(this.retrieveDeathRate(fips_array[i]));
+                values.push(current_county);
+            }
+
+            values.sort(function(a, b) {
+                return a - b;
+            });
+
+            var half = Math.floor(values.length / 2);
+            if (values.length % 2)
+                return values[half];
+            else
+                return (values[half - 1] + values[half]) / 2.0;
+        }
 
         /* NATURAL INCREASE  */
         this.retrieveCountyNatInc = function(fips, year) {

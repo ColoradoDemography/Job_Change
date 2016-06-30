@@ -7,6 +7,7 @@ module.exports = function(map: Object) {
         '<ul>' +
         '<li><a href="http://leafletjs.com/" target="_blank">Leaflet Mapping Library</a> - <a href="http://agafonkin.com/en/" target="_blank">Vladimir Agafonkin</a></li>' +
         '<li><a href="https://d3js.org/" target="_blank">D3 Data Visualization Library</a> - <a href="https://bost.ocks.org/mike/" target="_blank">Mike Bostock</a></li>' +
+        '<li><a href="https://github.com/teralytics/Leaflet.D3SvgOverlay" target="_blank">Leaflet D3 Overlay Plugin</a> - <a href="http://www.teralytics.net/" target="_blank">Teralytics</a></li>' +
         '<li><a href="https://github.com/w8r/Leaflet.Modal" target="_blank">Leaflet Modal Plugin</a> - Alexander Milevski</li>' +
         '<li><a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver Plugin</a> - <a href="https://eligrey.com/" target="_blank">Eli Grey</a></li>' +
         '</ul>' +

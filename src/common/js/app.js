@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
     'use strict';
 
     require("!style!css!../../lib/css/leaflet.modal.css");
-    require("!style!css!../../lib/css/leaflet.label.css");
     require("!style!css!../css/app.css");
 
 

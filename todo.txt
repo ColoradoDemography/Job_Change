@@ -1,17 +1,9 @@
 
 
-- Extra Symbology Breakdowns
-- Label Position (small adjustments)
-
-
 Features:
 - screenshot-ability (hash state?)
 - Mouseover for Statistic 
 - waterfall graph
-
-
-Optimize:
-- Credits Modal
 
 
 Weird:

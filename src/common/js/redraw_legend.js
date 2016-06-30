@@ -1,4 +1,4 @@
-module.exports = function(min, max, num) {
+module.exports = function(min, max, num, breaks) {
 
 
     var sig_dig = 0;
@@ -33,101 +33,101 @@ module.exports = function(min, max, num) {
     var legend_components = [];
     legend_components.push({
         rgb_string: "rgba(49, 54, 149, 0.5)",
-        lowtext: "Loss",
-        operator: ">",
-        hightext: ((min * 0.5).toLocaleString(undefined, {
+        lowtext: "",
+        operator: "<=",
+        hightext: ((breaks[0]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(69, 117, 180, 0.5)",
-        lowtext: (((Math.round((min * 0.5) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[0]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "to",
-        hightext: ((min * 0.35).toLocaleString(undefined, {
+        hightext: ((breaks[1]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(116, 173, 209, 0.5)",
-        lowtext: (((Math.round((min * 0.35) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[1]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "to",
-        hightext: ((min * 0.2).toLocaleString(undefined, {
+        hightext: ((breaks[2]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(171, 217, 233, 0.5)",
-        lowtext: (((Math.round((min * 0.2) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[2]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "to",
-        hightext: ((min * 0.1).toLocaleString(undefined, {
+        hightext: ((breaks[3]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(224, 243, 248, 0.5)",
-        lowtext: (((Math.round((min * 0.1) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[3]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "to",
-        hightext: "0" + add_pct
+        hightext: breaks[4] + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(255, 255, 191, 0.5)",
-        lowtext: (0 + offset) + add_pct,
+        lowtext: (breaks[4] + offset) + add_pct,
         operator: "to",
-        hightext: ((max * 0.1).toLocaleString(undefined, {
+        hightext: ((breaks[5]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(254, 224, 144, 0.5)",
-        lowtext: (((Math.round((max * 0.1) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[5]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "to",
-        hightext: ((max * 0.2).toLocaleString(undefined, {
+        hightext: ((breaks[6]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(253, 174, 97, 0.5)",
-        lowtext: (((Math.round((max * 0.2) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[6]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "to",
-        hightext: ((max * 0.35).toLocaleString(undefined, {
+        hightext: ((breaks[7]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(244, 109, 67, 0.5)",
-        lowtext: (((Math.round((max * 0.35) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[7]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "to",
-        hightext: ((max * 0.5).toLocaleString(undefined, {
+        hightext: ((breaks[8]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(215, 48, 39, 0.5)",
-        lowtext: (((Math.round((max * 0.5) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[8]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "to",
-        hightext: ((max * 0.75).toLocaleString(undefined, {
+        hightext: ((breaks[9]).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct
     });
     legend_components.push({
         rgb_string: "rgba(165, 0, 38, 0.5)",
-        lowtext: (((Math.round((max * 0.75) * scaler) / scaler) + offset).toLocaleString(undefined, {
+        lowtext: (((Math.round((breaks[9]) * scaler) / scaler) + offset).toLocaleString(undefined, {
             maximumFractionDigits: sig_dig
         })) + add_pct,
         operator: "+",
