@@ -1,9 +1,9 @@
 
 
-Features:
-- Mouseover for Statistic 
 - waterfall graph
-
+- update credits
+- commas in legend
+- webfonts on phantomjs
 
 Weird:
 - Double Zoom Layer Mousewheel? - https://github.com/Leaflet/Leaflet/issues/4538

@@ -7,6 +7,7 @@ module.exports = function(map: Object, worker_data: Object, resolve: any) {
     'use strict';
 
     var buildModal = require("./build_modal.js");
+    var mouseOver = require("./mouseover.js");
 
     var coutline: Object = new L.geoJson(null, {
         style: function() {
@@ -17,9 +18,38 @@ module.exports = function(map: Object, worker_data: Object, resolve: any) {
             };
         },
         onEachFeature: function(feature, layer) {
+
             layer.on('click', function(e) {
                 buildModal(e, worker_data, map);
             });
+
+            layer.on('mouseover', function(e) {
+
+                layer.setStyle({
+                    opacity: 1,
+                    weight: 2,
+                    color: 'cyan'
+                });
+
+                //bring feature to front
+                if (!L.Browser.ie && !L.Browser.opera) {
+                    layer.bringToFront();
+                }
+
+                mouseOver(e, worker_data);
+
+            });
+
+            layer.on('mouseout', function() {
+
+                layer.setStyle({
+                    opacity: 1,
+                    weight: 1,
+                    color: 'grey'
+                });
+
+            });
+
         }
     }).addTo(map);
 

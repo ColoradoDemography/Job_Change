@@ -117,6 +117,27 @@ a:hover {
   cursor: default;
 }
 
+
+#caption_control {
+
+  min-height: 30px;
+  padding: 0px 10px 0px 10px;
+  min-width: 100px;
+}
+
+#caption_control p {
+  padding: 0px;
+      color: rgb(110, 110, 110);
+    font-size: 14px;
+  vertical-align: baseline;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 3px;
+      margin-left: auto;
+    margin-right: auto;
+
+}
+
 .command input {
   cursor: pointer;
 }

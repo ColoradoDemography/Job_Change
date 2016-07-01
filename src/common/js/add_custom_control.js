@@ -100,6 +100,8 @@ module.exports = function(map: Object, layer: Object, worker_data: any) {
         let e: any = document.querySelector('#selto [value="2015"]');
         e.selected = true;
         refreshdata(layer, main_data);
+
+        require("./add_stat_caption.js")(map);
     }
 
 
