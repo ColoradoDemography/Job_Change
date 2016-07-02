@@ -1,6 +1,20 @@
 
 
-- waterfall graph
+Waterfall
+----
+
+chart labels
+save functionality
+aggregate > 20 years
+
+x as ordinal?
+re-incorporate lines as option
+
+as module
+
+writeup
+
+
 - update credits
 - commas in legend
 - webfonts on phantomjs

@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function() {
         position: 'topright'
     }).addTo(map);
 
-    require("./add_easy_button.js")(map);
+    require("./add_save_button.js")(map);
+
 
     require("./add_layer_control.js")(map, basemaps);
 

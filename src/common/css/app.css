@@ -376,9 +376,9 @@ text { text-rendering: optimizeLegibility ; }
 .bar.total rect {
   stroke: 1;
   stroke: steelblue;
-  stroke-opacity: 0.2;
+  stroke-opacity: 0.3;
   fill: steelblue;
-  fill-opacity: 0.2;
+  fill-opacity: 0.3;
 }
 
 .bar.birth rect {
@@ -401,6 +401,10 @@ text { text-rendering: optimizeLegibility ; }
   stroke-opacity: 1;
   fill: gray;
   fill-opacity: 0.2;
+}
+
+.bar rect:hover {
+  fill-opacity: 1;
 }
 
 /*

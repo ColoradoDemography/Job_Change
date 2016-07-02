@@ -1,9 +1,12 @@
 module.exports = function(cMap, fips) {
 
+
     var firstyear = cMap.first_year;
     var lastyear = cMap.last_year;
 
     var data = [];
+    var numberformat = d3.format(",d");
+
 
     data.push({
         name: firstyear,
@@ -21,17 +24,20 @@ module.exports = function(cMap, fips) {
         data.push({
             "name": i + .25,
             "value": Number(cMap.retrieveCountyBirths(fips, i + 1)),
-            "class": 'birth'
+            "class": 'birth',
+            "title": i + ' Births: ' + numberformat(Number(cMap.retrieveCountyBirths(fips, i + 1)))
         });
         data.push({
             "name": i + .5,
             "value": -Number(cMap.retrieveCountyDeaths(fips, i + 1)),
-            "class": 'death'
+            "class": 'death',
+            "title": i + ' Deaths: ' + numberformat(Number(cMap.retrieveCountyDeaths(fips, i + 1)))
         });
         data.push({
             "name": i + .75,
             "value": Number(cMap.retrieveCountyMigration(fips, i + 1)),
-            "class": 'migration'
+            "class": 'migration',
+            "title": i + ' Migration: ' + numberformat(Number(cMap.retrieveCountyMigration(fips, i + 1)))
         });
         data.push({
             "name": i + 1,
@@ -44,10 +50,37 @@ module.exports = function(cMap, fips) {
 
     var dataset_min = Math.min(...min_array);
 
-
     //leave some room
     dataset_min = parseInt(dataset_min * 0.85, 10);
 
+
+
+    // Transform data (i.e., finding cumulative values and total) for easier charting
+    var cumulative = 0;
+    for (var i = 0; i < data.length; i++) {
+        data[i].start = cumulative;
+
+        cumulative += data[i].value;
+        data[i].end = cumulative;
+
+        if (data[i].class === 'total') {
+            console.log(data[i].end);
+            console.log('hit');
+            data[i].start = dataset_min;
+            data[i].title = data[i].name + ' Population: ' + numberformat(parseInt(data[i].end));
+        }
+
+    }
+
+
+
+
+
+    //chart needs:
+    //   console.log(dataset_min);
+    //   console.log(firstyear);  
+    //   console.log(lastyear);
+    //   console.log(data);
 
     var total_width = 570;
     var total_height = 300;
@@ -55,7 +88,7 @@ module.exports = function(cMap, fips) {
     var margin = {
             top: 20,
             right: 30,
-            bottom: 30,
+            bottom: 40,
             left: 50
         },
         width = total_width - margin.left - margin.right,
@@ -87,21 +120,6 @@ module.exports = function(cMap, fips) {
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-    // Transform data (i.e., finding cumulative values and total) for easier charting
-    var cumulative = 0;
-    for (var i = 0; i < data.length; i++) {
-        data[i].start = cumulative;
-
-        cumulative += data[i].value;
-        data[i].end = cumulative;
-
-        if (data[i].class === 'total') {
-            data[i].start = dataset_min;
-        }
-
-    }
-
-
     x.domain([firstyear, lastyear + .25]);
     y.domain([dataset_min, d3.max(data, function(d) {
         return d.end;
@@ -110,7 +128,14 @@ module.exports = function(cMap, fips) {
     chart.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+        .call(xAxis)
+        .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(90)")
+        .style("text-anchor", "start");
+
 
     chart.append("g")
         .attr("class", "y axis")
@@ -137,7 +162,7 @@ module.exports = function(cMap, fips) {
         .attr("width", barwidth * padding)
         .append("svg:title")
         .text(function(d) {
-            return d.value;
+            return d.title;
         });
 
 
