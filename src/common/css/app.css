@@ -371,3 +371,59 @@ h3 {
 }
 
 text { text-rendering: optimizeLegibility ; }
+
+
+.bar.total rect {
+  stroke: 1;
+  stroke: steelblue;
+  stroke-opacity: 0.2;
+  fill: steelblue;
+  fill-opacity: 0.2;
+}
+
+.bar.birth rect {
+  stroke: 1;
+  stroke: darkolivegreen;
+  stroke-opacity: 1;
+  fill: darkolivegreen;
+  fill-opacity: 0.2;
+}
+.bar.death rect {
+  stroke: 1;
+  stroke: crimson;
+  stroke-opacity: 1;
+  fill: crimson;
+  fill-opacity: 0.2;
+}
+.bar.migration rect {
+  stroke: 1;
+  stroke: grey;
+  stroke-opacity: 1;
+  fill: gray;
+  fill-opacity: 0.2;
+}
+
+/*
+.bar line.connector {
+  stroke: grey; 
+  stroke: 1;
+}
+*/
+
+
+.bar text {
+  fill: white;
+  font: 12px sans-serif;
+  text-anchor: middle;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}

@@ -61,7 +61,7 @@ module.exports = function(e, worker_data, map) {
             maximumFractionDigits: 1
         }) + "</td><td></td></tr>";
 
-        info_html += "</table><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='dlthis' style='width=140px; margin-right: 20px;'>Download Table</button><button  id='dlall' style='width=140px; margin-left: 20px;'>Download All Data</button></div>";
+        info_html += "</table><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='dlthis' style='width=140px; margin-right: 20px;'>Download Table</button><button  id='dlall' style='width=140px; margin-left: 20px;'>Download All Data</button></div><br /><br /><svg class='chart'></svg>";
 
         map.openModal({
             content: info_html
@@ -75,6 +75,11 @@ module.exports = function(e, worker_data, map) {
         document.getElementById('dlall').addEventListener('click', function() {
             window.location.href = 'https://storage.googleapis.com/co-publicdata/components-change-county.csv';
         }, false);
+
+
+        //d3 waterfall chart
+        require("./waterfall_chart.js")(cMap, fips);
+
 
     });
 
