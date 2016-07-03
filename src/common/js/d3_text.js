@@ -28,7 +28,7 @@ module.exports = function(map) {
                 .append('text')
                 .style('text-anchor', 'middle')
                 .style('color', '#444')
-                .style('font-family', 'Georgia')
+                .style('font-family', "'Source Sans Pro', sans-serif")
                 .style('font-size', "8pt")
                 .attr('x', function(d) {
                     return proj.latLngToLayerPoint(d.coordinates).x;

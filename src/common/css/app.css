@@ -6,8 +6,14 @@ body, head {
     padding: 0;
     overflow-x: hidden !important;
     overflow-y: hidden !important;
+ font-family: 'Source Sans Pro', sans-serif;
   
 }
+
+table{
+    letter-spacing: 1.5px;
+}
+
 
 #map {
     width: 100%;
@@ -17,12 +23,7 @@ body, head {
     overflow-y: hidden !important;
 }
 
-#tabs-1{
-  font-family: Courier, sans-serif;
-}
-#tabs-2{
-  font-family: Courier, sans-serif;
-}
+
 
 button.ui-button-icon-only
 {
@@ -31,7 +32,19 @@ button.ui-button-icon-only
 }
 
 .title{
-    font-family: Georgia, Serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.leaflet-container{
+      font-family: 'Source Sans Pro', sans-serif;
+  }
+
+input, textarea, keygen, select, button, table{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.command {
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 circle {
@@ -203,9 +216,6 @@ input.leg {
     cursor: default;
 }
 
-.command {
-    font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
 
 h4.command {
     font-size: 13px;
@@ -262,7 +272,6 @@ hr {
 table {
     border: #ccc 1px solid;
     table-layout: fixed;
-    font-family: monospace;
     color: #111;
     font-size: 12px;
     text-shadow: 1px 1px 0px #fff;
@@ -336,12 +345,7 @@ h3 {
 }
 
 .abbrev td {
-    font-family: Courier, sans-serif;
   font-size: 12px;
-}
-
-#bblink {
-    font-family: Courier, sans-serif;
 }
 
 
@@ -381,13 +385,6 @@ text { text-rendering: optimizeLegibility ; }
   fill-opacity: 0.3;
 }
 
-.bar.birth rect {
-  stroke: 1;
-  stroke: darkolivegreen;
-  stroke-opacity: 1;
-  fill: darkolivegreen;
-  fill-opacity: 0.2;
-}
 .bar.death rect {
   stroke: 1;
   stroke: crimson;
@@ -403,26 +400,17 @@ text { text-rendering: optimizeLegibility ; }
   fill-opacity: 0.2;
 }
 
+
+
 .bar rect:hover {
   fill-opacity: 1;
 }
 
-/*
-.bar line.connector {
-  stroke: grey; 
-  stroke: 1;
-}
-*/
 
-
-.bar text {
-  fill: white;
-  font: 12px sans-serif;
-  text-anchor: middle;
-}
 
 .axis text {
-  font: 10px sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 10px;
 }
 
 .axis path,

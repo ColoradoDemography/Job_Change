@@ -98,7 +98,7 @@ module.exports = function(min, max, num, breaks) {
         hightext: ""
     });
 
-    var htmlstring = "<table style='border-style: none; line-height:12px;'>";
+    var htmlstring = "<table style='border: 0px solid #fff; box-shadow: none; background-color: #fff; line-height:12px;'>";
 
     for (let i = 0; i < legend_components.length; i++) {
         htmlstring += "<tr><td style='text-align: center;'><span style='color: " + legend_components[i].rgb_string + "'>&block;</span></td><td style='text-align: right;'>" + legend_components[i].lowtext + "</td><td style='text-align: center;'>" + legend_components[i].operator + "</td><td style='text-align: left;'>" + legend_components[i].hightext + "</td></tr>";

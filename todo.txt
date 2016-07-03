@@ -4,7 +4,8 @@ Waterfall
 ----
 
 chart labels
-legend
+y-axis
+x-axis
 
 aggregate > 20 years
 
