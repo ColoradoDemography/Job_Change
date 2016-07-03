@@ -14,7 +14,11 @@ module.exports = function(e, worker_data, map) {
     filterData(worker_data, string_output[0], function(data) {
 
         var cMap = new CMap(data);
-        var info_html = "<h2 style='text-align: center'>" + e.target.feature.properties.NAME + " County,&nbsp;&nbsp;" + cMap.first_year + " to " + cMap.last_year + "</h2><br /><table id='modaltable'>";
+
+
+        var info_html = "<ul class='tab'><li><a href='#' id='tab_table' class='tablinks active'>Table</a></li><li><a href='#' id='tab_chart' class='tablinks'>Chart</a></li></ul><div id='tablediv' class='tabcontent' style='display: block;'>" +
+
+            "<br /><h2 style='text-align: center'>" + e.target.feature.properties.NAME + " County,&nbsp;&nbsp;" + cMap.first_year + " to " + cMap.last_year + "</h2><br /><table id='modaltable'>";
 
         var fips = parseInt(e.target.feature.properties.COUNTYFP, 10);
 
@@ -61,7 +65,11 @@ module.exports = function(e, worker_data, map) {
             maximumFractionDigits: 1
         }) + "</td><td></td></tr>";
 
-        info_html += "</table><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='dlthis' style='width=140px; margin-right: 20px;'>Download Table</button><button  id='dlall' style='width=140px; margin-left: 20px;'>Download All Data</button></div><br /><br /><svg id='wf_chart'></svg><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='t_download' style='width=140px; margin-right: 20px;'>Download PNG</button><button id='f_download' style='width=140px; margin-left: 20px;'>Full Size PNG</button></div><br />";
+        info_html += "</table><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='dlthis' style='width=140px; margin-right: 20px;'>Download Table</button><button  id='dlall' style='width=140px; margin-left: 20px;'>Download All Data</button></div><br /></div>" +
+
+            "<div id='chartdiv' class='tabcontent'>" +
+
+            "<br /><svg id='wf_chart'></svg><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='t_download' style='width=140px; margin-right: 20px;'>Download PNG</button><button id='f_download' style='width=140px; margin-left: 20px;'>Full Size PNG</button></div><br /></div>";
 
         map.openModal({
             content: info_html
@@ -91,6 +99,40 @@ module.exports = function(e, worker_data, map) {
         document.getElementById('f_download').addEventListener('click', function() {
             saveSvgAsPng(full_chart, 'waterfall_lrg.png');
         }, false);
+
+
+
+        var tab_table = document.getElementById('tab_table');
+        var tab_chart = document.getElementById('tab_chart');
+
+        tab_table.addEventListener('click', function(evt) {
+            openCity(evt, 'tablediv');
+        }, false);
+        tab_chart.addEventListener('click', function(evt) {
+            openCity(evt, 'chartdiv');
+        }, false);
+
+
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the link that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
     });
 

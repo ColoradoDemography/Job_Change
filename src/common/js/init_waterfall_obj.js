@@ -2,7 +2,7 @@ module.exports = function() {
 
     var WaterfallObj = function(firstyear, lastyear, dataset_min) {
 
-        this.total_width = 550;
+        this.total_width = 520;
         this.total_height = 350;
 
         this.margin = {
