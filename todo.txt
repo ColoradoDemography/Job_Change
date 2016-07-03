@@ -4,18 +4,18 @@ Waterfall
 ----
 
 chart labels
-save functionality
+legend
+
 aggregate > 20 years
 
-x as ordinal?
-re-incorporate lines as option
 
-as module
+major configuration
+npm module and script taggable
 
 writeup
 
 
-- update credits
+
 - commas in legend
 - webfonts on phantomjs
 

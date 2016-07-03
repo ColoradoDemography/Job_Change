@@ -13,7 +13,8 @@
     },
     "globals": {
       "L": false,
-      "d3": false
+      "d3": false,
+      "saveSvgAsPng": false
     },
     "plugins": ["babel","flow-vars"],
     "rules": {

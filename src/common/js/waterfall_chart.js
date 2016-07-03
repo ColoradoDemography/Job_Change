@@ -1,5 +1,8 @@
+var WaterfallObj = require("./init_waterfall_obj.js")();
+
 module.exports = function(cMap, fips) {
 
+    var waterfall_chart = require("./easy-d3-waterfall.js");
 
     var firstyear = cMap.first_year;
     var lastyear = cMap.last_year;
@@ -64,8 +67,6 @@ module.exports = function(cMap, fips) {
         data[i].end = cumulative;
 
         if (data[i].class === 'total') {
-            console.log(data[i].end);
-            console.log('hit');
             data[i].start = dataset_min;
             data[i].title = data[i].name + ' Population: ' + numberformat(parseInt(data[i].end));
         }
@@ -75,112 +76,21 @@ module.exports = function(cMap, fips) {
 
 
 
+    //modal chart
+    var options = new WaterfallObj(firstyear, lastyear, dataset_min);
 
-    //chart needs:
-    //   console.log(dataset_min);
-    //   console.log(firstyear);  
-    //   console.log(lastyear);
-    //   console.log(data);
+    //large chart for full-size screenshot
+    var fulloptions = new WaterfallObj(firstyear, lastyear, dataset_min);
 
-    var total_width = 570;
-    var total_height = 300;
-
-    var margin = {
-            top: 20,
-            right: 30,
-            bottom: 40,
-            left: 50
-        },
-        width = total_width - margin.left - margin.right,
-        height = total_height - margin.top - margin.bottom,
-        padding = 0.9;
-
-    var barwidth = width / ((((lastyear - firstyear) * 4) + 1));
+    fulloptions.total_width = 800;
+    fulloptions.total_height = 600;
 
 
-    var x = d3.scale.linear()
-        .range([0, width]);
+    var charta = waterfall_chart("#wf_chart", data, options);
+    charta();
 
-    var y = d3.scale.linear()
-        .range([height, 0]);
-
-    var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom").ticks(lastyear - firstyear)
-        .tickFormat(d3.format("d"));
-
-    var yAxis = d3.svg.axis()
-        .scale(y)
-        .orient("left");
-
-    var chart = d3.select(".chart")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-    x.domain([firstyear, lastyear + .25]);
-    y.domain([dataset_min, d3.max(data, function(d) {
-        return d.end;
-    })]);
-
-    chart.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis)
-        .selectAll("text")
-        .attr("y", 0)
-        .attr("x", 9)
-        .attr("dy", ".35em")
-        .attr("transform", "rotate(90)")
-        .style("text-anchor", "start");
-
-
-    chart.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
-
-    var bar = chart.selectAll(".bar")
-        .data(data)
-        .enter().append("g")
-        .attr("class", function(d) {
-            return "bar " + d.class
-        })
-        .attr("transform", function(d) {
-            return "translate(" + x(d.name) + ",0)";
-        });
-
-
-    bar.append("rect")
-        .attr("y", function(d) {
-            return y(Math.max(d.start, d.end));
-        })
-        .attr("height", function(d) {
-            return Math.abs(y(d.start) - y(d.end));
-        })
-        .attr("width", barwidth * padding)
-        .append("svg:title")
-        .text(function(d) {
-            return d.title;
-        });
-
-
-
-
-
-    //       bar.filter(function(d) { return d.class != "sdfsdf" }).append("line")
-    //           .attr("class", "connector")
-    //           .attr("x1", function(d){
-    //         console.log('d: ' + d.name); 
-    //         console.log('x.d: ' + x(d.name)); 
-    //         return (x(d.name)); 
-    //       })
-    //           .attr("y1", function(d) { return y(d.end); } )
-    //           .attr("y2", function(d) { return y(d.end); } )
-    //           .attr("x2", function(d){ return (x(d.name+0.25)); } );
-
-
+    var chartb = waterfall_chart("#full_chart", data, fulloptions);
+    chartb();
 
 
 }
