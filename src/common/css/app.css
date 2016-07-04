@@ -350,6 +350,7 @@ h3 {
 
 
 @media (max-width: 599px) {
+  
   .command, #slider, .title, .leaflet-control-layers {
     display: none;
   }
@@ -374,103 +375,10 @@ h3 {
   }
 }
 
-text { text-rendering: optimizeLegibility ; }
-
-
-.bar.total rect {
-  stroke: 1;
-  stroke: steelblue;
-  stroke-opacity: 0.3;
-  fill: steelblue;
-  fill-opacity: 0.3;
-}
-
-.bar.death rect {
-  stroke: 1;
-  stroke: crimson;
-  stroke-opacity: 1;
-  fill: crimson;
-  fill-opacity: 0.2;
-}
-.bar.migration rect {
-  stroke: 1;
-  stroke: grey;
-  stroke-opacity: 1;
-  fill: gray;
-  fill-opacity: 0.2;
-}
 
 
 
-.bar rect:hover {
-  fill-opacity: 1;
-}
 
 
 
-.axis text {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 10px;
-}
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-
-/* Style the list */
-ul.tab {
-  width: 540px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
-
-/* Float the list items side by side */
-ul.tab li {float: left;}
-
-/* Style the links inside the list items */
-ul.tab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-/* Change background color of links on hover */
-ul.tab li a:hover {background-color: #ddd;}
-
-/* Create an active/current tablink class */
-ul.tab li a:focus, .active {background-color: #ccc;}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-  width: 540px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
-.tabcontent {
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-}
-
-@-webkit-keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}

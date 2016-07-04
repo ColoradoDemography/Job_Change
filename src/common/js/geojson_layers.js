@@ -42,6 +42,8 @@ module.exports = function(map: Object, worker_data: Object, resolve: any) {
 
             layer.on('mouseout', function() {
 
+                document.getElementById('caption_control').innerHTML = "<p></p>";
+
                 layer.setStyle({
                     opacity: 1,
                     weight: 1,
@@ -49,6 +51,7 @@ module.exports = function(map: Object, worker_data: Object, resolve: any) {
                 });
 
             });
+
 
         }
     }).addTo(map);

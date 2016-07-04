@@ -1,23 +1,34 @@
 module.exports = function() {
 
-    var WaterfallObj = function(firstyear, lastyear, dataset_min) {
 
-        this.total_width = 520;
-        this.total_height = 350;
+    var WaterfallObj = function() {
 
-        this.margin = {
-            top: 20,
-            right: 20,
-            bottom: 40,
-            left: 60
-        };
+        this.chart = {};
+        this.chart.width = 520;
+        this.chart.height = 350;
+        this.chart.font_family = "'Source Sans Pro', sans-serif";
+        this.chart.bar_padding = 0.9;
 
-        this.padding = 0.9;
+        this.margin = {};
+        this.margin.top = 50;
+        this.margin.right = 10;
+        this.margin.bottom = 90;
+        this.margin.left = 80;
 
-        this.firstyear = firstyear;
-        this.lastyear = lastyear;
-        this.dataset_min = dataset_min;
+        this.title = {};
+        this.title.text = "";
+        this.title.font_size = 20;
+        this.title.font_weight = 500;
 
+        this.x_label = {};
+        this.x_label.text = "Year";
+        this.x_label.font_size = 14;
+        this.x_label.font_weight = 500;
+
+        this.y_label = {};
+        this.y_label.text = "Population";
+        this.y_label.font_size = 14;
+        this.y_label.font_weight = 500;
 
         //create legend
         this.legend = [{
@@ -54,10 +65,6 @@ module.exports = function() {
             "label": "Migration"
         }];
 
-        this.legend_height = 50;
-        this.title_height = 20;
-
-        this.title_string = "Waterfall Chart";
 
     }
 

@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     require("!style!css!../../lib/css/leaflet.modal.css");
     require("!style!css!../../lib/css/easy-button.css");
     require("!style!css!../css/app.css");
-
+    require("!style!css!../css/tabs.css");
 
     var basemaps = require("./load_basemaps")();
 

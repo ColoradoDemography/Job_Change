@@ -1,6 +1,6 @@
 var WaterfallObj = require("./init_waterfall_obj.js")();
 
-module.exports = function(cMap, fips) {
+module.exports = function(cMap, fips, title) {
 
     var waterfall_chart = require("./easy-d3-waterfall.js");
 
@@ -12,9 +12,9 @@ module.exports = function(cMap, fips) {
 
 
     data.push({
-        name: firstyear,
-        class: 'total',
-        value: Number(cMap.retrieveCountyPop(fips, firstyear))
+        "x": firstyear,
+        "class": 'total',
+        "value": Number(cMap.retrieveCountyPop(fips, firstyear))
     });
 
 
@@ -25,25 +25,25 @@ module.exports = function(cMap, fips) {
         min_array.push(Number(cMap.retrieveCountyPop(fips, i)));
 
         data.push({
-            "name": i + .25,
+            "x": i + .25,
             "value": Number(cMap.retrieveCountyBirths(fips, i + 1)),
             "class": 'birth',
             "title": i + ' Births: ' + numberformat(Number(cMap.retrieveCountyBirths(fips, i + 1)))
         });
         data.push({
-            "name": i + .5,
+            "x": i + .5,
             "value": -Number(cMap.retrieveCountyDeaths(fips, i + 1)),
             "class": 'death',
             "title": i + ' Deaths: ' + numberformat(Number(cMap.retrieveCountyDeaths(fips, i + 1)))
         });
         data.push({
-            "name": i + .75,
+            "x": i + .75,
             "value": Number(cMap.retrieveCountyMigration(fips, i + 1)),
             "class": 'migration',
             "title": i + ' Migration: ' + numberformat(Number(cMap.retrieveCountyMigration(fips, i + 1)))
         });
         data.push({
-            "name": i + 1,
+            "x": i + 1,
             "value": 0,
             "class": 'total'
         });
@@ -57,7 +57,6 @@ module.exports = function(cMap, fips) {
     dataset_min = parseInt(dataset_min * 0.85, 10);
 
 
-
     // Transform data (i.e., finding cumulative values and total) for easier charting
     var cumulative = 0;
     for (var i = 0; i < data.length; i++) {
@@ -68,7 +67,7 @@ module.exports = function(cMap, fips) {
 
         if (data[i].class === 'total') {
             data[i].start = dataset_min;
-            data[i].title = data[i].name + ' Population: ' + numberformat(parseInt(data[i].end));
+            data[i].title = data[i].x + ' Population: ' + numberformat(parseInt(data[i].end));
         }
 
     }
@@ -77,14 +76,17 @@ module.exports = function(cMap, fips) {
 
 
     //modal chart
-    var options = new WaterfallObj(firstyear, lastyear, dataset_min);
+    var options = new WaterfallObj();
+    console.log(options);
+    options.title.text = title;
 
     //large chart for full-size screenshot
-    var fulloptions = new WaterfallObj(firstyear, lastyear, dataset_min);
+    var fulloptions = new WaterfallObj();
+    console.log(fulloptions);
 
-    fulloptions.total_width = 800;
-    fulloptions.total_height = 600;
-
+    fulloptions.chart.width = 800;
+    fulloptions.chart.height = 600;
+    fulloptions.title.text = title;
 
     var charta = waterfall_chart("#wf_chart", data, options);
     charta();

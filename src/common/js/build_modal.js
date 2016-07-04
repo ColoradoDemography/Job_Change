@@ -86,7 +86,7 @@ module.exports = function(e, worker_data, map) {
 
 
         //d3 waterfall chart
-        require("./waterfall_chart.js")(cMap, fips);
+        require("./waterfall_chart.js")(cMap, fips, e.target.feature.properties.NAME + " County,  " + cMap.first_year + " to " + cMap.last_year);
 
         var svg_chart = document.getElementById('wf_chart');
 
@@ -106,14 +106,14 @@ module.exports = function(e, worker_data, map) {
         var tab_chart = document.getElementById('tab_chart');
 
         tab_table.addEventListener('click', function(evt) {
-            openCity(evt, 'tablediv');
+            openTab(evt, 'tablediv');
         }, false);
         tab_chart.addEventListener('click', function(evt) {
-            openCity(evt, 'chartdiv');
+            openTab(evt, 'chartdiv');
         }, false);
 
 
-        function openCity(evt, cityName) {
+        function openTab(evt, cityName) {
             // Declare all variables
             var i, tabcontent, tablinks;
 
