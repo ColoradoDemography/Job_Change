@@ -58,7 +58,7 @@ module.exports = function(selector, data, options) {
             .scale(y)
             .orient("left");
 
-        d3.select(selector)
+        var rect = d3.select(selector)
             .attr("width", width + margin_left + margin_right)
             .attr("height", height + margin_top + margin_bottom)
             .append("rect")
@@ -263,6 +263,10 @@ module.exports = function(selector, data, options) {
         }
 
         chart.selectAll("text").style("font-family", chart_font_family).attr("text-rendering", "optimizeLegibility");
+
+        rect.attr("width", "100%")
+            .attr("height", "100%")
+            .attr("fill", "#fff");
 
     }
 

@@ -77,12 +77,10 @@ module.exports = function(cMap, fips, title) {
 
     //modal chart
     var options = new WaterfallObj();
-    console.log(options);
     options.title.text = title;
 
     //large chart for full-size screenshot
     var fulloptions = new WaterfallObj();
-    console.log(fulloptions);
 
     fulloptions.chart.width = 800;
     fulloptions.chart.height = 600;

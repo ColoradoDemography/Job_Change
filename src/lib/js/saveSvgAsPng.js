@@ -91,12 +91,12 @@
       var width, height;
       if(el.tagName == 'svg') {
         var box = el.getBoundingClientRect();
-        width = box.width+5;
-        height = box.height+5;
+        width = box.width;
+        height = box.height;
       } else {
         var box = el.getBBox();
-        width = box.x + box.width+5;
-        height = box.y + box.height+5;
+        width = box.x + box.width;
+        height = box.y + box.height;
         clone.setAttribute('transform', clone.getAttribute('transform').replace(/translate\(.*?\)/, ''));
 
         var svg = document.createElementNS('http://www.w3.org/2000/svg','svg')
@@ -135,8 +135,8 @@
       image.src = uri;
       image.onload = function() {
         var canvas = document.createElement('canvas');
-        canvas.width = image.width+5;
-        canvas.height = image.height+5;
+        canvas.width = image.width;
+        canvas.height = image.height;
         var context = canvas.getContext('2d');
         context.drawImage(image, 0, 0);
 

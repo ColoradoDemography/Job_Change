@@ -65,11 +65,11 @@ module.exports = function(e, worker_data, map) {
             maximumFractionDigits: 1
         }) + "</td><td></td></tr>";
 
-        info_html += "</table><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='dlthis' style='width=140px; margin-right: 20px;'>Download Table</button><button  id='dlall' style='width=140px; margin-left: 20px;'>Download All Data</button></div><br /></div>" +
+        info_html += "</table><br /><div class='main_content'><div class='container'><button class='mbutton' id='dlthis'>Download Table</button><button class='mbutton' id='dlall' style='float: right;'>Download All Data</button></div></div><br /></div>" +
 
             "<div id='chartdiv' class='tabcontent'>" +
 
-            "<br /><svg id='wf_chart'></svg><br /><div style='margin-right: auto; margin-left: auto; width: 280px;'><button id='t_download' style='width=140px; margin-right: 20px;'>Download PNG</button><button id='f_download' style='width=140px; margin-left: 20px;'>Full Size PNG</button></div><br /></div>";
+            "<br /><div id='chart_wrapper'><svg id='wf_chart'></svg></div><br /><div class='main_content'><div class='container'><button class='mbutton' id='t_download'>Download PNG</button><button class='mbutton' id='f_download' style='float: right;'>Full Size PNG</button></div></div><br /></div>";
 
         map.openModal({
             content: info_html
@@ -91,6 +91,8 @@ module.exports = function(e, worker_data, map) {
         var svg_chart = document.getElementById('wf_chart');
 
         document.getElementById('t_download').addEventListener('click', function() {
+            var wrapper = document.getElementById('chart_wrapper');
+            console.log(wrapper.innerHTML);
             saveSvgAsPng(svg_chart, 'waterfall.png');
         }, false);
 

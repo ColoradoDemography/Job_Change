@@ -382,3 +382,23 @@ h3 {
 
 
 
+
+.main_content {
+    width: 540px;
+    min-height: 50px;
+    height: auto;
+    position: relative;
+}
+
+.container {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+.mbutton {
+  width: 125px;
+}
+

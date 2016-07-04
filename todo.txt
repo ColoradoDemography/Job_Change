@@ -1,25 +1,15 @@
 
 
-Waterfall
-----
+revamp data format
 
-
-centering of buttons
 aggregate > 20 years
 
-
-
-major configuration
 npm module and script taggable
-save as svg
-
-
 writeup
 
-
-- commas in legend
-
-
+proper save image sizing
+-------
+DONE: reload container, or add width/height options
 
 Weird:
 - Double Zoom Layer Mousewheel? - https://github.com/Leaflet/Leaflet/issues/4538
@@ -27,42 +17,3 @@ Weird:
 - Modal triggers scroll bar
 - Modal Close Tab buttons 'ghosting'
 
-
-{
-	"chart": {
-		"width": 520,
-		"height": 350,
-		"font_family": "",
-    "bar_padding": 0.9
-	},
-	"margin": {
-		"top": 50,
-		"right": 10,
-		"bottom": 90,
-		"left": 80
-	},
-	"title": {
-		"text": "",
-		"font_size": 10,
-		"font_weight": 500
-	},
-	"x_label": {
-		"text": "",
-		"font_size": 10,
-		"font_weight": 500
-	},
-	"y_label": {
-		"text": "",
-		"font_size": 10,
-		"font_weight": 500
-	},
-	"legend": [{
-		"class": "total",
-		"fill": "steelblue",
-		"fill_opacity": 0.3,
-		"stroke": "steelblue",
-		"stroke_opacity": 0.5,
-		"stroke_width": 1,
-		"label": "Totals"
-	}]
-}
