@@ -16,7 +16,7 @@ module.exports = function(e, worker_data, map) {
         var cMap = new CMap(data);
 
 
-        var info_html = "<ul class='tab'><li><a href='#' id='tab_table' class='tablinks active'>Table</a></li><li><a href='#' id='tab_chart' class='tablinks'>Chart</a></li></ul><div id='tablediv' class='tabcontent' style='display: block;'>" +
+        var info_html = "<ul id='tabbedbrowsing' class='tab'><li><a href='#' id='tab_table' class='tablinks active'>Table</a></li><li><a href='#' id='tab_chart' class='tablinks'>Chart</a></li></ul><div id='tablediv' class='tabcontent' style='display: block;'>" +
 
             "<br /><h2 style='text-align: center'>" + e.target.feature.properties.NAME + " County,&nbsp;&nbsp;" + cMap.first_year + " to " + cMap.last_year + "</h2><br /><table id='modaltable'>";
 
@@ -114,6 +114,22 @@ module.exports = function(e, worker_data, map) {
             openTab(evt, 'chartdiv');
         }, false);
 
+
+        //hacks to prevent 'ghosting' of tab menu on close of modal
+        document.querySelector(".close").addEventListener('click', function() {
+            closeModal();
+        }, false);
+
+        document.querySelector("div.modal").addEventListener('mousedown', function() {
+            closeModal();
+        }, false);
+
+
+        function closeModal() {
+            console.log('closed');
+            var element = document.querySelector('#tabbedbrowsing');
+            element.style.display = 'none';
+        }
 
         function openTab(evt, cityName) {
             // Declare all variables
