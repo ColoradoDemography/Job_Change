@@ -2,6 +2,7 @@ module.exports = function(selector, data, options) {
 
     return function() {
 
+
         var chart_width = options.chart.width || 520;
         var chart_height = options.chart.height || 350;
         var chart_font_family = options.chart.font_family || "sans-serif";
@@ -29,19 +30,36 @@ module.exports = function(selector, data, options) {
         var firstyear = data[0].x;
         var lastyear = data[data.length - 1].x;
 
+        var max_barscale = d3.max(data, function(d) {
+            return d.barscale;
+        }) || 1;
+
+        // calculate the starting and ending values of each bar
+        var cumulative = 0;
+        for (let i = 0; i < data.length; i++) {
+            data[i].start = cumulative;
+            cumulative += data[i].value;
+            data[i].end = cumulative;
+        }
+
+        //calculate minimum value in dataset.  Use this so y-axis starts at this value, rather than 0
         var dataset_min = d3.min(data, function(d) {
             return d.end;
         });
         dataset_min = parseInt(dataset_min * 0.85, 10); // start y-axis at 85% of minimum value (rather than at 0).
 
+        //we need to 'reset' the bar minimum value using dataset_min, else bars will be drawn starting below the x-axis
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].class === 'total') {
+                data[i].start = dataset_min;
+            }
+        }
+
+
         var width = chart_width - margin_left - margin_right;
         var height = chart_height - margin_top - margin_bottom;
 
-        var barwidth = width / ((((lastyear - firstyear) * 4) + 1));
-
-
-        //chart
-
+        var barwidth = width / ((((lastyear - firstyear) * legend_class.length) + 1));
 
         var x = d3.scale.linear()
             .range([0, width]);
@@ -51,7 +69,7 @@ module.exports = function(selector, data, options) {
 
         var xAxis = d3.svg.axis()
             .scale(x)
-            .orient("bottom").ticks(lastyear - firstyear)
+            .orient("bottom").ticks(parseInt((lastyear - firstyear) / max_barscale))
             .tickFormat(d3.format("d"));
 
         var yAxis = d3.svg.axis()
@@ -70,7 +88,8 @@ module.exports = function(selector, data, options) {
             .attr("transform", "translate(" + margin_left + "," + (margin_top) + ")");
 
 
-        x.domain([firstyear, lastyear + .25]); //remove magic number
+
+        x.domain([firstyear, lastyear + ((1 / legend_class.length) * max_barscale)]); //remove magic number
         y.domain([dataset_min, d3.max(data, function(d) {
             return d.end;
         })]);
@@ -114,6 +133,16 @@ module.exports = function(selector, data, options) {
             });
 
 
+        function value_from_legend_class(d, default_value, attribute_string) {
+            var ret_val = default_value;
+            for (let i = 0; i < legend_class.length; i++) {
+                if (d.class === legend_class[i].class) {
+                    ret_val = legend_class[i][attribute_string];
+                }
+            }
+            return ret_val;
+        }
+
         var bar_rect = bar.append("rect")
             .attr("y", function(d) {
                 return y(Math.max(d.start, d.end));
@@ -121,64 +150,34 @@ module.exports = function(selector, data, options) {
             .attr("height", function(d) {
                 return Math.abs(y(d.start) - y(d.end));
             })
-            .attr("width", barwidth * chart_bar_padding)
-            .style("fill", function(d) {
-                var ret_val = "grey"; //as default
-                for (let i = 0; i < legend_class.length; i++) {
-                    if (d.class === legend_class[i].class) {
-                        ret_val = legend_class[i].fill;
-                    }
+            .attr("width", function(d) {
+                if (d.barscale) {
+                    return ((barwidth * d.barscale) * chart_bar_padding);
+                } else {
+                    return barwidth * chart_bar_padding;
                 }
-                return ret_val;
+            })
+            .style("fill", function(d) {
+                return value_from_legend_class(d, 'grey', 'fill');
             })
             .style("fill-opacity", function(d) {
-                var ret_val = 0.2; //as default
-                for (let i = 0; i < legend_class.length; i++) {
-                    if (d.class === legend_class[i].class) {
-                        ret_val = legend_class[i].fill_opacity;
-                    }
-                }
-                return ret_val;
+                return value_from_legend_class(d, 0.2, 'fill_opacity');
             })
             .style("stroke-width", function(d) {
-                var ret_val = 1; //as default
-                for (let i = 0; i < legend_class.length; i++) {
-                    if (d.class === legend_class[i].class) {
-                        ret_val = legend_class[i].stroke_width;
-                    }
-                }
-                return ret_val;
+                return value_from_legend_class(d, 1, 'stroke_width');
             })
             .style("stroke", function(d) {
-                var ret_val = "grey"; //as default
-                for (let i = 0; i < legend_class.length; i++) {
-                    if (d.class === legend_class[i].class) {
-                        ret_val = legend_class[i].stroke;
-                    }
-                }
-                return ret_val;
+                return value_from_legend_class(d, 'grey', 'stroke');
             })
             .style("stroke-opacity", function(d) {
-                var ret_val = 1; //as default
-                for (let i = 0; i < legend_class.length; i++) {
-                    if (d.class === legend_class[i].class) {
-                        ret_val = legend_class[i].stroke_opacity;
-                    }
-                }
-                return ret_val;
+                return value_from_legend_class(d, 1, 'stroke_opacity');
             })
             .on("mouseover", function() {
                 d3.select(this).style("fill-opacity", 1);
             })
             .on("mouseout", function() {
                 d3.select(this).style("fill-opacity", function(d) {
-                    var ret_val = 0.2; //as default
-                    for (let i = 0; i < legend_class.length; i++) {
-                        if (d.class === legend_class[i].class) {
-                            ret_val = legend_class[i].fill_opacity;
-                        }
-                    }
-                    return ret_val;
+                    return value_from_legend_class(d, 0.2, 'fill_opacity');
                 });
             });
 

@@ -78,6 +78,9 @@ module.exports = function(map: Object, layer: Object, worker_data: any) {
     var querystring = getJsonFromUrl();
 
     if ('print' in querystring && 'stat' in querystring && 'from' in querystring && 'to' in querystring) {
+
+        map.panTo(L.latLng(39.35, -104.3));
+
         let e: any = document.querySelector('#stat [value="' + querystring.stat + '"]');
         e.selected = true;
         let f: any = document.querySelector('#selfrom [value="' + querystring.from + '"]');

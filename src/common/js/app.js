@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var basemaps = require("./load_basemaps")();
 
     var map = L.map('map', {
-        center: [39.2, -104.8],
+        center: [39.0, -105.4],
         zoom: 7,
         layers: [basemaps.nolabel],
         zoomControl: false
