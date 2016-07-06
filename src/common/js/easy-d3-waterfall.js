@@ -61,6 +61,19 @@ module.exports = function(selector, data, options) {
 
         var barwidth = width / ((((lastyear - firstyear) * legend_class.length) + 1));
 
+
+        d3.select(selector)
+            .append('defs')
+            .append('pattern')
+            .attr('id', 'diagonalHatch')
+            .attr('patternUnits', 'userSpaceOnUse')
+            .attr('width', 4)
+            .attr('height', 4)
+            .append('path')
+            .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+            .attr('stroke', 'rgb(70,70,70)')
+            .attr('stroke-width', 0.4);
+
         var x = d3.scale.linear()
             .range([0, width]);
 
@@ -180,6 +193,30 @@ module.exports = function(selector, data, options) {
                     return value_from_legend_class(d, 0.2, 'fill_opacity');
                 });
             });
+
+
+        bar.append("rect")
+            .attr("y", function(d) {
+                return y(Math.max(d.start, d.end));
+            })
+            .attr("height", function(d) {
+                return Math.abs(y(d.start) - y(d.end));
+            })
+            .attr("width", function(d) {
+                if (d.barscale) {
+                    return ((barwidth * d.barscale) * chart_bar_padding);
+                } else {
+                    return barwidth * chart_bar_padding;
+                }
+            })
+            .style("fill", function(d) {
+                if (d.value < 0) {
+                    return 'url(#diagonalHatch)';
+                }
+                return 'rgba(255,255,255,0)';
+            })
+            .style("pointer-events", "none");
+
 
 
         bar_rect.append("svg:title")

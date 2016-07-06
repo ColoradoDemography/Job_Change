@@ -3,9 +3,6 @@
 
 remove magic numbers
 
-if migration is negative, crosshatch  (overall...for deaths too?)
-
-
 
 npm module and script taggable
 -research npm es6 commonjs compatible

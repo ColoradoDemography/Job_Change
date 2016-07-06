@@ -66,7 +66,7 @@ module.exports = function(cMap, fips, title) {
     var death_aggr_ttl = function(i) {
         let running_total = 0;
         for (let j = i + 1; j <= (i + agg_years); j++) {
-            running_total += Number(cMap.retrieveCountyDeaths(fips, j));
+            running_total += -Number(cMap.retrieveCountyDeaths(fips, j));
         }
         return running_total;
     };
@@ -107,7 +107,7 @@ module.exports = function(cMap, fips, title) {
             "x": find_x_value(i, 0.5),
             "value": death_aggr_ttl(i),
             "class": 'death',
-            "title": year_range(i) + ' Deaths: ' + numberformat(death_aggr_ttl(i)),
+            "title": year_range(i) + ' Deaths: ' + numberformat(-death_aggr_ttl(i)),
             "barscale": find_barscale(i)
         });
         data.push({
