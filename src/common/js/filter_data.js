@@ -6,7 +6,7 @@ module.exports = function(main_data, years_string, callback) {
     var filtered_data = main_data.filter(function(d) {
 
         for (let i = 0; i < years_array.length; i++) {
-            if (d.year === parseInt(years_array[i])) {
+            if (d.population_year === parseInt(years_array[i])) {
                 return true;
             }
         }

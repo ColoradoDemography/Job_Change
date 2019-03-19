@@ -105,10 +105,10 @@ module.exports = function(min, max, num, breaks) {
     }
 
     if (num === "2") {
-        htmlstring += "<tr><td colspan='4'>Year to year change<br/>in total population</td></tr></table>";
+        htmlstring += "<tr><td colspan='4'>Year to year change<br/>in total jobs</td></tr></table>";
     }
     if (num === "1") {
-        htmlstring += "<tr><td colspan='4'>Percent change in population<br/>from year to year</td></tr></table>";
+        htmlstring += "<tr><td colspan='4'>Percent change in jobs<br/>from year to year</td></tr></table>";
     }
     if (num === "4") {
         htmlstring += "<tr><td colspan='4'>Average change in population<br/>for each year selected</td></tr></table>";
