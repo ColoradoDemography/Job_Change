@@ -100,7 +100,7 @@ module.exports = function(map: Object, layer: Object, worker_data: any) {
 
         refreshdata(layer, main_data);
     } else {
-        let e: any = document.querySelector('#selto [value="2017"]');
+        let e: any = document.querySelector('#selto [value="2018"]');
         e.selected = true;
         refreshdata(layer, main_data);
 
