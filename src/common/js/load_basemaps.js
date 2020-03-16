@@ -16,7 +16,7 @@ module.exports = function() {
         tileSize: 512,
         maxZoom: 18,
         zoomOffset: -1,
-        id: 'mapbox/streets-v11',
+        id: 'mapbox/outdoors-v11',
         accessToken: 'pk.eyJ1Ijoic3RhdGVjb2RlbW9nIiwiYSI6Ikp0Sk1tSmsifQ.hl44-VjKTJNEP5pgDFcFPg'
     });
 
