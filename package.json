@@ -75,7 +75,7 @@
     "js-yaml": "^3.13.1",
     "lodash": "^4.17.15",
     "lodash.template": "^4.5.0",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "tunnel-agent": "^0.6.0"
   }
 }
