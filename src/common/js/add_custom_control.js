@@ -25,7 +25,7 @@ module.exports = function(map: Object, layer: Object, worker_data: any) {
         div.innerHTML = "Statistic:<br /><select id='stat'><option value='2'>Total Job Change</option><option value='1'>Percent Job Change</option>></select><br />" +
             "<br />From:&nbsp;&nbsp;<select id='selfrom'>" + queriedYears + "</select>&nbsp;&nbsp;&nbsp;To:&nbsp;&nbsp;<select id='selto'>" + queriedYears + "</select><br />"+
             "<p>Only estimates data are available for <br>Adams, Arapahoe, Boulder, Broomfield, <br>Douglas and Jefferson Counties</p>"+
-            "<p><a href='https://drive.google.com/uc?export=download&id=1DL4nb1rv45F5Lue-AxCDsIC4NzOeyiKg'>Download the job data</a></p>";
+            "<p><a href='https://drive.google.com/uc?export=download&id=1iNg_baqd4zQwy8PC-7cz5YSEMjrkeWHh'>Download the job data</a></p>";
         div.padding = "20px";
         return div;
     };
